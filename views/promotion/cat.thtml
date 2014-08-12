@@ -1,0 +1,69 @@
+<input type="hidden" id="setting_title" value="+订阅">
+<input type="hidden" id="setting_url" value="<?=urlWithParam(array(), MY_HOMEPAGE_URL.'/subscribe/setting')?>">
+<div class="second-nav J_super_top clearfix">
+	<div id="J_first_nav">
+		<ul class="ui-navigator-list">
+			<li><a class="J-nav-classify<?php if(!$midcat):?> cur<?php endif?>" href="/promotion/cat/<?=urlencode($cat)?>">全部</a></li>
+			<?php foreach($all_goods_cat[$cat] as $i_midcat => $subcats):?>
+			<li><a class="J-nav-classify<?php if($midcat == $i_midcat):?> cur<?php endif?>" href="/promotion/cat/<?=urlencode($cat)?>/<?=urlencode($i_midcat)?>"><?=$i_midcat?></a></li>
+			<?php endforeach?>
+		</ul>
+	</div>
+</div>
+<section class="place-holder-nav"></section>
+<div class="promo-bd">
+	<div class="limit-hd clearfix">
+		<?php
+			$count_all_goods = array_sum($stat['num_goods'])+3;
+			$count_all_cat = count($all_goods_cat);
+			$count_today_promo = array_sum($stat['num_promo_sp_today']);
+			if($midcat){
+
+				$count_all_cat_subcat = 0;
+				foreach($all_goods_cat[$cat] as $i_midcat => $subcats){
+					$count_all_cat_subcat+=count($subcats);
+				}
+
+				$count_cat_subcat = count($all_goods_cat[$cat][$midcat]);
+				$count_promo = intval($count_today_promo * $count_cat_subcat / $count_all_cat_subcat);
+
+			}else{
+
+				$count_all_midcat = 0;
+				foreach($all_goods_cat as $i_cat => $i_midcats){
+					$count_all_midcat+=count($i_midcats);
+				}
+
+				$count_midcat = count($all_goods_cat[$cat]);
+				$count_promo = intval($count_today_promo * $count_midcat / $count_all_midcat)*10;
+			}
+		?>
+		<h3 class="t">今日从<font class="purple"><?=intval($count_all_goods/100)?></font>品牌中，发现<font class="purple"><?=$count_promo?></font>个<?=$midcat?$midcat:$cat?>特卖</h3>
+	</div>
+	<div style="display:block;">
+		<?php foreach($lists as $promo):?>
+		<?php if($promo['invalid'])continue?>
+			<?=$this->renderElement('promo_cat_goods', array('promo'=>$promo))?>
+		<?php endforeach?>
+		<!--
+		<a class="promo-cat-link" href="/super/?idx=1&id=5">
+			<img src="http://static2.51fanli.net/webapp/images/super/cat/cat-spacer.png" data-url="http://static2.51fanli.net/webapp/images/super/cat/cat-fs.jpg" alt="服饰" style="width:100%" class="ui-imglazyload" />
+		</a>
+		<a class="promo-cat-link" href="/super/?idx=2&id=7">
+			<img src="http://static2.51fanli.net/webapp/images/super/cat/cat-spacer.png" data-url="http://static2.51fanli.net/webapp/images/super/cat/cat-mz.jpg" alt="美妆" style="width:100%" class="ui-imglazyload" />
+		</a>
+		<a class="promo-cat-link" href="/super/?idx=3&id=101">
+			<img src="http://static2.51fanli.net/webapp/images/super/cat/cat-spacer.png" data-url="http://static2.51fanli.net/webapp/images/super/cat/cat-jj.jpg" alt="家居" style="width:100%" class="ui-imglazyload" />
+		</a>
+		<a class="promo-cat-link" href="/super/?idx=4&id=15">
+			<img src="http://static2.51fanli.net/webapp/images/super/cat/cat-spacer.png" data-url="http://static2.51fanli.net/webapp/images/super/cat/cat-sm.jpg" alt="家电" style="width:100%" class="ui-imglazyload" />
+		</a>
+		<a class="promo-cat-link" href="/super/?idx=5&id=13">
+			<img src="http://static2.51fanli.net/webapp/images/super/cat/cat-spacer.png" data-url="http://static2.51fanli.net/webapp/images/super/cat/cat-sp.jpg" alt="食品" style="width:100%" class="ui-imglazyload" />
+		</a>
+		<a class="promo-cat-link" href="/super/?idx=6&id=9">
+			<img src="http://static2.51fanli.net/webapp/images/super/cat/cat-spacer.png" data-url="http://static2.51fanli.net/webapp/images/super/cat/cat-my.jpg" alt="母婴" style="width:100%" class="ui-imglazyload" />
+		</a>
+		-->
+	</div>
+</div>
