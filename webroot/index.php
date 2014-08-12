@@ -21,7 +21,7 @@ if (!defined('ROOT')) {
 
 if (!defined('APP_DIR')) {
 	//define('APP_DIR', 'DIRECTORY NAME OF APPLICATION';
-	define('APP_DIR', 'h5');
+	define('APP_DIR', 'wap');
 }
 
 /**

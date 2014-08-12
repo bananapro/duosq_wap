@@ -5,14 +5,29 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<meta name="format-detection" content="telephone=no;address=no;email=no"/>
-	<link rel="shortcut icon" href="http://www.duosq.com/favicon.ico" />
+	<link rel="shortcut icon" href="/favicon.ico" />
 	<link rel="apple-touch-icon" href="<?=MY_STATIC_URL?>/img/icon_apple_touch.png?<?=MY_STATIC_TIME?>" />
-	<link rel="stylesheet" href="<?=MY_STATIC_URL?>/css/h5.css?<?=MY_STATIC_TIME?>" />
+	<link rel="stylesheet" href="<?=MY_STATIC_URL?>/css/wap.css?<?=MY_STATIC_TIME?>" />
 	<script src="<?=MY_STATIC_URL?>/js/h5_zepto.js?<?=MY_STATIC_TIME?>"></script>
 	<script src="<?=MY_STATIC_URL?>/js/h5_main.js?<?=MY_STATIC_TIME?>"></script>
 </head>
 	<body>
 		<?=$content_for_layout;?>
+		<footer>
+			<aside>
+				<span><a href="http://www.duosq.com?jump_to_pc=1">PC版</a><i>|</i><a href="/">触屏版</a></span>
+				</aside>
+			<p>特卖订阅&nbsp;&nbsp;&nbsp;&nbsp;wap.duosq.com</p>
+		</footer>
+		<div style="display:none">
+			<script src="http://s17.cnzz.com/stat.php?id=5770544&web_id=5770544" language="JavaScript"></script>
+			<?php if(!@$disable_bd_stat):?>
+			<script type="text/javascript">
+			var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe2b4dbe72fe51d7b4e9d8a13bb21a40d' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+			<?php endif?>
+		</div>
 		<?=$cakeDebug?>
 	</body>
 </html>

@@ -1,0 +1,51 @@
+<div class="second-nav J_super_top clearfix">
+	<?=$this->renderElement('nav')?>
+	<div id="J_tab_nav">
+		<ul class="ui-navigator-list">
+			<li><a class="J-nav-classify" href="/">网站首页</a></li>
+			<?php foreach($all_goods_cat as $cat => $midcats):?>
+			<li><a class="J-nav-classify" href="<?=promoCatUrl($cat)?>"><?=$cat?></a></li>
+			<?php endforeach?>
+		</ul>
+	</div>
+</div>
+<section class="place-holder-nav"></section>
+<div class="promo-bd">
+	<div class="promo-list">
+	<?php foreach($all_goods_cat as $cat => $val):?>
+		<?php $lists = D('promotion')->getList($this->controller->Pagination, array('cat'=>$cat), 10, false);?>
+		<fieldset>
+			<legend><?=$cat?> - 今日爆出<font class="purple"><?=intval(@$stat['num_promo_cat_today'][$cat])?></font>件品牌特卖</legend>
+			<?php $now = 0?>
+			<?php $last = count($lists)?>
+			<ul>
+			<?php foreach($lists as $promo):?>
+			<?php if($promo['invalid'])continue;?>
+				<?php if($now==$last-1)$noborder=true?>
+				<?=$this->renderElement('goods', array('promo'=>$promo, 'noborder'=>false))?>
+				<?php $now++?>
+			<?php endforeach?>
+			</ul>
+		</fieldset>
+	<?php endforeach;?>
+	</div>
+
+	<a class="promo-cat-link" href="<?=promoCatUrl('服装鞋子')?>">
+		<img src="<?=MY_STATIC_URL?>/img/wap/cat-spacer.png" data-url="<?=MY_STATIC_URL?>/img/wap/cat-fs.jpg" alt="服饰" style="width:100%" class="ui-imglazyload" />
+	</a>
+	<a class="promo-cat-link" href="<?=promoCatUrl('美妆个护')?>">
+		<img src="<?=MY_STATIC_URL?>/img/wap/cat-spacer.png" data-url="<?=MY_STATIC_URL?>/img/wap/cat-mz.jpg" alt="美妆" style="width:100%" class="ui-imglazyload" />
+	</a>
+	<a class="promo-cat-link" href="<?=promoCatUrl('家居日用')?>">
+		<img src="<?=MY_STATIC_URL?>/img/wap/cat-spacer.png" data-url="<?=MY_STATIC_URL?>/img/wap/cat-jj.jpg" alt="家居" style="width:100%" class="ui-imglazyload" />
+	</a>
+	<a class="promo-cat-link" href="<?=promoCatUrl('家用电器')?>">
+		<img src="<?=MY_STATIC_URL?>/img/wap/cat-spacer.png" data-url="<?=MY_STATIC_URL?>/img/wap/cat-sm.jpg" alt="家电" style="width:100%" class="ui-imglazyload" />
+	</a>
+	<a class="promo-cat-link" href="<?=promoCatUrl('美食生鲜')?>">
+		<img src="<?=MY_STATIC_URL?>/img/wap/cat-spacer.png" data-url="<?=MY_STATIC_URL?>/img/wap/cat-sp.jpg" alt="食品" style="width:100%" class="ui-imglazyload" />
+	</a>
+	<a class="promo-cat-link" href="<?=promoCatUrl('母婴用品')?>">
+		<img src="<?=MY_STATIC_URL?>/img/wap/cat-spacer.png" data-url="<?=MY_STATIC_URL?>/img/wap/cat-my.jpg" alt="母婴" style="width:100%" class="ui-imglazyload" />
+	</a>
+</div>

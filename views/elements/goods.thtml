@@ -1,0 +1,18 @@
+<li class="clearfix<?php if(@$noborder):?> noborder<?php endif?>">
+	<a href="<?=promoGoodsUrl($promo['sp'], $promo['goods_id'])?>">
+	<div class="goods-img"><img class="ui-imglazyload" src="<?=MY_STATIC_URL?>/img/no_photo.png" data-url="<?=imageUrl($promo['pic_url'], '200x200')?>" /></div>
+	<div class="goods-content">
+		<div class="goods-title"><?=$promo['name']?></div>
+		<div class="goods-price clearfix">
+			<div class="price-info">
+				<small>&yen;</small>
+				<strong><?=price_yuan($promo['price_now'])?></strong>
+				<del>90天均价</del>
+			</div>
+			<div class="price-discount green">
+				<strong>今日省<?=rate_diff($promo['price_now'], $promo['price_avg'])?>%</strong>
+			</div>
+		</div>
+	</div>
+	</a>
+</li>

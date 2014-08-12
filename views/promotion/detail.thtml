@@ -1,0 +1,43 @@
+<div class="second-nav J_super_top clearfix">
+	<?=$this->renderElement('nav')?>
+	<div id="J_tab_nav">
+		<ul class="ui-navigator-list">
+			<li><a class="J-nav-classify" href="/">网站首页</a></li>
+			<?php foreach($all_goods_cat as $cat => $midcats):?>
+			<li><a class="J-nav-classify<?php if($promo['cat'][0] == $cat):?> cur<?php endif?>" href="<?=promoCatUrl($cat)?>"><?=$cat?></a></li>
+			<?php endforeach?>
+		</ul>
+	</div>
+</div>
+<section class="place-holder-nav"></section>
+<div class="promo-bd">
+	<div class="promo-item-mod promo-brand-mod">
+		<a href="<?=D('promotion')->buildUrl($promo['url_tpl'], $promo['url_id'], 'mobi')?>">
+			<div class="mod-img">
+				<?php if(isset($promo['is_new'])):?>
+					<div class="mod-mark mark-new">new</div>
+				<?php endif?>
+				<span><img src="<?=MY_STATIC_URL?>/img/shop_logo/<?=$promo['sp']?>.png"></span>
+				<img class="ui-imglazyload" src="<?=MY_STATIC_URL?>/img/no_photo.png" data-url="<?=imageUrl(r(array('460x460','360x360','260x260'), '960x960', $promo['pic_url']), '600x600')?>" />
+			</div>
+			<div class="mod-desc border-not">
+				<?=strtotime($promo['hd_expire'])>0?'<span class="color">【限时'.date('n月d',strtotime($promo['hd_expire'])).'】</span>':''?><?=$promo['name']?>
+			</div>
+			<div class="mod-price clearfix">
+				<div class="price-info">
+					<small>&yen;</small>
+					<strong><?=price_yuan($promo['price_now'])?></strong>
+					<del>90天均价&yen;<?=price_yuan($promo['price_avg'])?></del>
+				</div>
+				<div class="get-fl color">
+					<strong>今日省<?=rate_diff($promo['price_now'], $promo['price_avg'])?>%</strong>
+				</div>
+			</div>
+			<div>
+				<div id="submit-btn-enable" class="submit-btn important">跳转到<?=D('shop')->getName($promo['sp'])?>购买 >></div>
+				<a id="submit-btn-enable" href="<?=promoCatUrl($promo['cat'][0])?>" class="submit-btn">更多<?=$promo['cat'][0]?>特卖</a>
+				<a id="submit-btn-enable" href="javascript:void(0);" onclick="history.back(1)" class="submit-btn">返回上一页</a>
+			</div>
+		</a>
+	</div>
+</div>

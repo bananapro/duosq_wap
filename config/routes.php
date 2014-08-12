@@ -6,5 +6,7 @@
  * to use (in this case, /app/views/default/index.thtml)...
  */
 $Route->connect('/', array('controller' => 'default', 'action' => 'index'));
-$Route->connect('/mobi/*', array('controller' => 'mobi', 'action' => 'entry'));
+$Route->connect('/promo-cat-(.+)', array('controller' => 'promotion', 'action' => 'cat'));
+$Route->connect('/promo-midcat-(.+)', array('controller' => 'promotion', 'action' => 'midcat'));
+$Route->connect('/item-([a-z0-9]+-[0-9]+)', array('controller' => 'promotion', 'action' => 'detail'));
 ?>

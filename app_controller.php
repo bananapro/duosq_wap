@@ -10,7 +10,9 @@ class AppController extends Controller {
 	function beforeFilter() {
 
 		parent::beforeFilter();
-		$this->set('title', '特卖订阅');
+		$this->set('title', '特卖订阅网 - 每日大量爆料');
+		$this->set('meta_keywords', '品牌特卖,正品特卖,打折,优惠,省钱,品牌女装,品牌包包,品牌男装,品牌家电,品牌母婴,特卖订阅');
+		$this->set('meta_description', '品牌特卖每日大量爆料，淘宝、天猫、唯品会、京东特价商品，名牌女装男装、母婴家居、数码家电大促信息，只爆正品，您还可以订阅指定品牌特卖,每逢品牌打折将第一时间给您通知! ');
 		header('Content-Type: text/html; charset=UTF-8');
 
 		if ($this->loginValide && !D('myuser')->isLogined()) {
@@ -26,8 +28,7 @@ class AppController extends Controller {
 			$this->layout = 'ajax';
 			// Add UTF-8 header for IE6 on XPsp2 bug
 			header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-			header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-			header("P3P: CP=CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR");
+			header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date
 		}
 	}
 
