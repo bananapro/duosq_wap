@@ -82,6 +82,7 @@ class PromotionController extends AppController {
 		}
 
 		$this->set('all_goods_cat', D('promotion')->getCatConfig(true));
+		$this->set('stat', D('promotion')->getStat());
 
 		$this->set('meta_keywords', join('特卖', explode(' ', $promo['name'])));
 		$this->set('meta_description', D('shop')->getName($sp).'正品特卖,'.join('促销', explode(' ', $promo['name'])).' 今日仅售'.$promo['price_now'].'元包邮,价格当天有效');

@@ -15,7 +15,7 @@
 		<?=$content_for_layout;?>
 		<footer>
 			<aside>
-				<span><a href="http://www.duosq.com?jump_to_pc=1">PC版</a><i>|</i><a href="/">触屏版</a></span>
+				<span><a href="<?=MY_WWW_URL?>?jump_to_pc=1">PC版</a><i>|</i><a href="/">触屏版</a></span>
 				</aside>
 			<p>特卖订阅&nbsp;&nbsp;&nbsp;&nbsp;wap.duosq.com</p>
 		</footer>

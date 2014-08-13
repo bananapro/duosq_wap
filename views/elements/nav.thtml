@@ -1,3 +1,4 @@
 <div class="first-nav">
 <h1><a href="/">特卖订阅</a></h1>
+<p>今日爆出<font class="yellow"><b><?=array_sum($stat['num_promo_sp_today'])?></b></font>件特卖降幅超<b>30%</b></p>
 </div>
