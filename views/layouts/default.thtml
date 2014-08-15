@@ -5,6 +5,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<meta name="format-detection" content="telephone=no;address=no;email=no"/>
+	<meta name="applicable-device" content="mobile"/>
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<link rel="apple-touch-icon" href="<?=MY_STATIC_URL?>/img/icon_apple_touch.png?<?=MY_STATIC_TIME?>" />
 	<link rel="stylesheet" href="<?=MY_STATIC_URL?>/css/wap.css?<?=MY_STATIC_TIME?>" />
