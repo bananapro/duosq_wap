@@ -45,9 +45,9 @@ class PromotionController extends AppController {
 		$lists = D('promotion')->getList($this->Pagination, $cond, C('comm', 'wap_promo_cat_goods_pre_page'), false);
 
 		if($midcat){
-			$this->set('title', $midcat.'特卖 - 特卖订阅');
+			$this->set('title', $midcat.'特卖 -特卖订阅');
 		}else{
-			$this->set('title', $cat.'特卖 - 特卖订阅');
+			$this->set('title', $cat.'特卖 -特卖订阅');
 		}
 
 		$this->set('lists', $lists);
