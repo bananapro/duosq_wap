@@ -45,9 +45,9 @@ class PromotionController extends AppController {
 		$lists = D('promotion')->getList($this->Pagination, $cond, C('comm', 'wap_promo_cat_goods_pre_page'), false);
 
 		if($midcat){
-			$this->set('title', '今日'.$midcat.'特卖');
+			$this->set('title', $midcat.'特卖 - 特卖订阅');
 		}else{
-			$this->set('title', '今日'.$cat.'特卖');
+			$this->set('title', $cat.'特卖 - 特卖订阅');
 		}
 
 		$this->set('lists', $lists);
@@ -75,11 +75,7 @@ class PromotionController extends AppController {
 		$promo = array_pop($promo);
 		$this->set('promo', $promo);
 
-		if($promo){
-			$this->set('title', '【'.D('shop')->getName($sp).'今日降'.rate_diff($promo['price_now'], $promo['price_avg']).'%】正品'.$promo['name'].'特卖 - 特卖订阅');
-		}else{
-			$this->set('title', '【'.D('shop')->getName($sp).'正品】'.$promo['name'].'特卖 - 特卖订阅');
-		}
+		$this->set('title', $promo['name'].'最低价 - 特卖订阅');
 
 		$this->set('all_goods_cat', D('promotion')->getCatConfig(true));
 		$this->set('stat', D('promotion')->getStat());
