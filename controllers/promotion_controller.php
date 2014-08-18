@@ -75,7 +75,23 @@ class PromotionController extends AppController {
 		$promo = array_pop($promo);
 		$this->set('promo', $promo);
 
-		$this->set('title', $promo['name'].'最低价 - 特卖订阅');
+		$title_pre = '';
+
+		if($goods['brand_id']){
+			$title_pre = D('brand')->getName($goods['brand_id'], false);
+
+			if($goods['subcat']){
+				$title_pre .= $goods['subcat'][0];
+			}else if($goods['cat']){
+				$title_pre .= $goods['cat'][0];
+			}
+		}
+
+		if($title_pre){
+			$title_pre = ' - '.$title_pre.' - ';
+		}
+
+		$this->set('title', $promo['name'].$title_pre.' -特卖订阅');
 
 		$this->set('all_goods_cat', D('promotion')->getCatConfig(true));
 		$this->set('stat', D('promotion')->getStat());
