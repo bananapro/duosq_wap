@@ -27,14 +27,25 @@
 				<div class="price-info">
 					<small>&yen;</small>
 					<strong><?=price_yuan($promo['price_now'])?></strong>
-					<del>90天均价&yen;<?=price_yuan($promo['price_avg'])?></del>
+					<del>90天实售&yen;<?=price_yuan($promo['price_avg'])?></del>
 				</div>
 				<div class="get-fl color">
 					<strong>今日省<?=rate_diff($promo['price_now'], $promo['price_avg'])?>%</strong>
 				</div>
 			</div>
 			<div>
-				<div id="submit-btn-enable" class="submit-btn important">跳转到<?=D('shop')->getName($promo['sp'])?>购买 >></div>
+				<?php if($promo['invalid'] == 'sell_out'):?>
+					<div id="submit-btn-enable" class="submit-btn">可能已售罄，去<?=D('shop')->getName($promo['sp'])?>看看 >></div>
+				<?php elseif($promo['invalid'] == 'invalid'):?>
+					<div id="submit-btn-enable" class="submit-btn">已下架，去<?=D('shop')->getName($promo['sp'])?>看看 >></div>
+				<?php else:?>
+					<?php if($promo && $promo['invalid']):?>
+						<div id="submit-btn-enable" class="submit-btn important">已涨价，跳转到<?=D('shop')->getName($promo['sp'])?>购买 >></div>
+					<?php else:?>
+						<div id="submit-btn-enable" class="submit-btn important">跳转到<?=D('shop')->getName($promo['sp'])?>购买 >></div>
+					<?php endif?>
+				<?php endif?>
+
 				<a id="submit-btn-enable" href="<?=promoCatUrl($promo['cat'][0])?>" class="submit-btn">更多<?=$promo['cat'][0]?>特卖</a>
 				<a id="submit-btn-enable" href="javascript:void(0);" onclick="history.back(1)" class="submit-btn">返回上一页</a>
 			</div>
