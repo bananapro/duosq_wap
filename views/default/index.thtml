@@ -1,14 +1,3 @@
-<div class="second-nav J_super_top clearfix">
-	<?=$this->renderElement('nav')?>
-	<div id="J_tab_nav">
-		<ul class="ui-navigator-list">
-			<li><a class="J-nav-classify" href="/">网站首页</a></li>
-			<?php foreach($all_goods_cat as $cat => $midcats):?>
-			<li><a class="J-nav-classify" href="<?=promoCatUrl($cat)?>"><?=$cat?></a></li>
-			<?php endforeach?>
-		</ul>
-	</div>
-</div>
 <section class="place-holder-nav"></section>
 <div class="promo-bd">
 	<div class="promo-list">

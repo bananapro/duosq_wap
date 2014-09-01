@@ -13,13 +13,18 @@
 	<?php echo $javascript->link(MY_STATIC_URL.'/js/h5_main');?>
 </head>
 	<body>
+		<div class="second-nav J_super_top clearfix">
+			<?=$this->renderElement('nav')?>
+		</div>
 		<?=$content_for_layout;?>
+		<?php if(!$hide_footer):?>
 		<footer>
 			<aside>
 				<span><a href="<?=MY_WWW_URL?>?jump_to_pc=1">PC版</a><i>|</i><a href="/">触屏版</a></span>
 				</aside>
 			<p>特卖订阅&nbsp;&nbsp;&nbsp;&nbsp;wap.duosq.com</p>
 		</footer>
+		<?php endif?>
 		<div style="display:none">
 			<script src="http://s17.cnzz.com/stat.php?id=5770544&web_id=5770544" language="JavaScript"></script>
 			<?php if(!@$disable_bd_stat):?>

@@ -1,15 +1,3 @@
-<div class="second-nav J_super_top clearfix">
-	<?=$this->renderElement('nav')?>
-	<div id="J_tab_nav">
-		<ul class="ui-navigator-list">
-			<li><a class="J-nav-classify" href="/">网站首页</a></li>
-			<li><a class="J-nav-classify<?php if(!isset($midcat)):?> cur<?php endif?>" href="<?=promoCatUrl($cat)?>">全部<?=$cat?></a></li>
-			<?php foreach($all_goods_cat[$cat] as $i_midcat => $subcats):?>
-			<li><a class="J-nav-classify<?php if(isset($midcat) && $midcat == $i_midcat):?> cur<?php endif?>" href="<?=promoMidcatUrl($i_midcat)?>"><?=$i_midcat?></a></li>
-			<?php endforeach?>
-		</ul>
-	</div>
-</div>
 <section class="place-holder-nav"></section>
 <div class="promo-bd">
 	<div class="limit-hd clearfix">

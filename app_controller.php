@@ -10,7 +10,7 @@ class AppController extends Controller {
 	function beforeFilter() {
 
 		parent::beforeFilter();
-		$this->set('title', '特卖订阅网 - 每日大量特卖爆料');
+		$this->set('title', '特卖订阅网 -手机版本 -duosq.com');
 		$this->set('meta_keywords', '品牌特卖,正品特卖,打折,优惠,省钱,品牌女装,品牌包包,品牌男装,品牌家电,品牌母婴,特卖订阅');
 		$this->set('meta_description', '品牌特卖每日大量爆料，淘宝、天猫、唯品会、京东特价商品，名牌女装男装、母婴家居、数码家电大促信息，只爆正品，您还可以订阅指定品牌特卖,每逢品牌打折将第一时间给您通知! ');
 		header('Content-Type: text/html; charset=UTF-8');
@@ -19,6 +19,13 @@ class AppController extends Controller {
 			if ($this->action == 'index' && $this->name == 'Default') $this->redirect('/Login');
 			else $this->flash('您尚未登陆，或已经超时，请重新登陆!', '/', 5);
 		}
+
+		$this->set('hide_footer', false);
+	}
+
+	function beforeRender(){
+		$this->set('all_goods_cat', D('promotion')->getCatConfig(true));
+		$this->set('stat', D('promotion')->getStat());
 	}
 
 	//自动识别ajax
