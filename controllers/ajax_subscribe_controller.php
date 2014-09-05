@@ -67,21 +67,27 @@ class ajaxSubscribeController extends AppController {
 			$this->_error('您的操作太频繁，请过10分钟再尝试！');
 		}
 
-		if(!D('myuser')->getSubscribeEmail())
+		$email = D('myuser')->getSubscribeEmail();
+
+		if(!$email)
 			$this->_error('未登录，请从邮件重新进入！');
 
 		$sess_id = $_GET['sess_id'];
-		$email = D('myuser')->getSubscribeEmail();
-		$platform = 'email';
 
 		if(!D('subscribe')->sessCheck($sess_id)){
 			$this->_error('网络故障200，请从邮件重新进入！');
 		}
 
-		$ret = D('subscribe')->sessSave($sess_id, $email, $platform);
+		$is_new = D('subscribe')->getSetting($email);
+		$ret = D('subscribe')->sessSave($sess_id, $email, 'email');
 		if(!$ret){
 			$this->_error('网络故障202，请从邮件重新进入！');
 		}else{
+
+			if(!$is_new){
+				//发送欢迎邮件
+				sendMail($email, array(), 'subscribe_welcome');
+			}
 			$this->_success();
 		}
 	}
