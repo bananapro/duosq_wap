@@ -16,6 +16,7 @@ class SubscribeController extends AppController {
 			$this->set('error', '<div class="notice">登陆已失效，请重新从我们的邮件，重新进入！</div>');
 
 		}else{
+
 			$sess_id = D('subscribe')->sessCreate();
 			if(!$sess_id){
 				$this->set('error', '发生错误，请返回上一界面，重新进入！');
@@ -40,6 +41,11 @@ class SubscribeController extends AppController {
 			}
 
 			$this->set('default_midcat', $default_midcat);
+
+			//新订阅或者订阅禁止状态，允许直接提交
+			if( !$setting || $setting['status'] == \DB\Subscribe::STATUS_STOP){
+				$this->set('enable_submit', true);
+			}
 		}
 
 		$this->set('hide_footer', true);

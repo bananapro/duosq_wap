@@ -88,6 +88,8 @@ class ajaxSubscribeController extends AppController {
 				//发送欢迎邮件
 				sendMail($email, array(), 'subscribe_welcome');
 			}
+
+			D('log')->action(1555, 1, array('data1'=>'email', 'data2'=>$email, 'data4'=>'wap'));
 			$this->_success();
 		}
 	}
