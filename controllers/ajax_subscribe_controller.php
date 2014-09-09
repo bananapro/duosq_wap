@@ -102,6 +102,9 @@ class ajaxSubscribeController extends AppController {
 			$this->_error('系统发生内部错误，请重试！');
 		}else{
 			D('log')->action(1556, 1, array('data1'=>'email', 'data2'=>$email, 'data4'=>'wap'));
+
+			//发送退订成功邮件
+			if(!D('speed')->subscribe())sendMail($email, array(), 'subscribe_refuse_complete');
 			$this->_success();
 		}
 	}
