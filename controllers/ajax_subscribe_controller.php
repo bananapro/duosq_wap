@@ -62,11 +62,6 @@ class ajaxSubscribeController extends AppController {
 	//提交Email订阅
 	function saveSetting(){
 
-		//IP速控
-		if(D('speed')->subscribe()){
-			$this->_error('您的操作太频繁，请过10分钟再尝试！');
-		}
-
 		$email = D('myuser')->getSubscribeEmail();
 
 		if(!$email)
@@ -90,6 +85,23 @@ class ajaxSubscribeController extends AppController {
 			}
 
 			D('log')->action(1555, 1, array('data1'=>'email', 'data2'=>$email, 'data4'=>'wap'));
+			$this->_success();
+		}
+	}
+
+	//停止订阅
+	function refuse(){
+
+		$email = D('myuser')->getSubscribeEmail();
+
+		if(!$email)
+			$this->_error('未登录，请从邮件重新进入！');
+
+		$ret = D('subscribe')->refuse($email);
+		if(!$ret){
+			$this->_error('系统发生内部错误，请重试！');
+		}else{
+			D('log')->action(1556, 1, array('data1'=>'email', 'data2'=>$email, 'data4'=>'wap'));
 			$this->_success();
 		}
 	}
