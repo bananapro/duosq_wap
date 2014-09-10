@@ -276,7 +276,7 @@ function bindBrandSuggest(){
 	})
 }
 
-//选择option subcat
+//选择option midcat
 function selectMidcat(obj, subcat){
 
 	if($(obj).attr('class') == 'selected'){

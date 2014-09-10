@@ -1,0 +1,19 @@
+<style>input{display:inline}</style>
+<?php $html->validationErrors['subscribe_feedback'] = D('subscribe')->db('promotion.subscribe_feedback')->validationErrors;?>
+<div class="subscribe-feedback clearfix">
+	<h1 style="font-size:20px;margin-bottom:10px">❤.欢迎反馈使用建议</h1>
+	<div style="line-height:24px; font-size:14px; padding-top:10px; color:#666">
+		<form action="/subscribe/feedback" method="POST">
+			您的QQ：(选填, 方便给您反馈)<br />
+			<?=$html->tagErrorMsg('subscribe_feedback/qq', 'QQ号格式错误，请输入正确Q号')?>
+			<?=$html->input('subscribe_feedback/qq', array('autocomplete'=>'off', 'size'=>30, 'style'=>'width:90%'))?><br /><br />
+			反馈内容：(必填, 10个字以上)<br />
+			<?=$html->tagErrorMsg('subscribe_feedback/content', '反馈内容不能少于10个文字')?>
+			<?=$html->textarea('subscribe_feedback/content', array('cols'=>50, 'rows'=>10, 'style'=>'width:99%'))?>
+			<br />
+			<div class="ft">
+			<input type="submit" class="btn-button btn-button-morange" value="提交反馈">
+			</div>
+		</form>
+	</div>
+</div>

@@ -51,5 +51,28 @@ class SubscribeController extends AppController {
 		$this->set('hide_footer', true);
 		$this->set('in_subscribe', true);
 	}
+
+	//意见反馈
+	function feedback(){
+
+		$this->set('friend_links', true);
+		$this->set('title', '订阅反馈建议');
+		$this->set('meta_keywords', '订阅反馈建议');
+		$this->set('meta_description', '订阅反馈建议');
+
+		//提交数据
+		if($this->data){
+			$data = $this->data['subscribe_feedback'];
+			if(D('myuser')->getSubscribeEmail()){
+				$data['account'] = D('myuser')->getSubscribeEmail();
+				$data['channel'] = 'email';
+			}
+			$ret = D('subscribe')->addFeedback($data);
+
+			if($ret){
+				$this->flash('感谢您的建议，我们会认真查看并给您反馈！', '/subscribe', 5);
+			}
+		}
+	}
 }
 ?>
