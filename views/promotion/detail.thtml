@@ -1,14 +1,3 @@
-<div class="second-nav J_super_top clearfix">
-	<?=$this->renderElement('nav')?>
-	<div id="J_tab_nav">
-		<ul class="ui-navigator-list">
-			<li><a class="J-nav-classify" href="/">网站首页</a></li>
-			<?php foreach($all_goods_cat as $cat => $midcats):?>
-			<li><a class="J-nav-classify<?php if($promo['cat'][0] == $cat):?> cur<?php endif?>" href="<?=promoCatUrl($cat)?>"><?=$cat?></a></li>
-			<?php endforeach?>
-		</ul>
-	</div>
-</div>
 <section class="place-holder-nav"></section>
 <div class="promo-bd" style="padding-top:20px">
 	<div class="promo-item-mod promo-brand-mod">
@@ -33,6 +22,9 @@
 					<strong>今日省<?=rate_diff($promo['price_now'], $promo['price_avg'])?>%</strong>
 				</div>
 			</div>
+			<div class="mod-desc border-not" style="font-size:12px">
+				<?=$global->cutstr(nl2br($promo['hd_content']), 500, 0)?>
+			</div>
 			<div>
 				<?php if($promo['invalid'] == 'sell_out'):?>
 					<div id="submit-btn-enable" class="submit-btn">可能已售罄，去<?=D('shop')->getName($promo['sp'])?>看看 >></div>
@@ -47,7 +39,6 @@
 				<?php endif?>
 
 				<a id="submit-btn-enable" href="<?=promoCatUrl($promo['cat'][0])?>" class="submit-btn">更多<?=$promo['cat'][0]?>特卖</a>
-				<a id="submit-btn-enable" href="javascript:void(0);" onclick="history.back(1)" class="submit-btn">返回上一页</a>
 			</div>
 		</a>
 	</div>

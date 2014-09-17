@@ -22,7 +22,7 @@
 			<aside>
 				<span><a href="<?=MY_WWW_URL?>?jump_to_pc=1">PC版</a><i>|</i><a href="/">触屏版</a></span>
 				</aside>
-			<p>特卖订阅&nbsp;&nbsp;&nbsp;&nbsp;wap.duosq.com</p>
+			<p class="purple">监控2万个品牌，超1千万商品，平均促销期仅<font style="font-size:18px" class="green">1.4天</font></p>
 		</footer>
 		<?php endif?>
 		<div style="display:none">
