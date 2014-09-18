@@ -11,6 +11,7 @@ class DefaultController extends AppController {
 		//模板需要用到常量
 		$this->set('all_goods_cat', D('promotion')->getCatConfig(true));
 		$this->set('stat', D('promotion')->getStat());
+		$this->set('home', true);
 	}
 }
 ?>

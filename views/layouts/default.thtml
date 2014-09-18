@@ -20,9 +20,12 @@
 		<?php if(!$hide_footer):?>
 		<footer>
 			<aside>
-				<span><a href="<?=MY_WWW_URL?>?jump_to_pc=1">PC版</a><i>|</i><a href="/">触屏版</a></span>
-				</aside>
-			<p class="purple">监控2万个品牌，超1千万商品，平均促销期仅<font style="font-size:18px" class="green">1.4天</font></p>
+				<?php if(@$home):?>
+					<span><a href="<?=MY_WWW_URL?>?jump_to_pc=1">PC版</a> / <a href="<?=C('comm', 'app_downlaod_auto')?>">下载APP</a></span>
+				<?php else:?>
+					<span><p class="purple">监控<font style="font-size:16px" class="orange">2万</font>个品牌，超<font style="font-size:16px" class="blue">1千万</font>商品，平均有效期<font style="font-size:16px" class="green">1.3天</font></p></span>
+				<?php endif?>
+			</aside>
 		</footer>
 		<?php endif?>
 		<div style="display:none">

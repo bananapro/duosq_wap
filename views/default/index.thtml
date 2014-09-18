@@ -2,7 +2,7 @@
 <div class="promo-bd">
 	<div class="promo-list">
 	<?php foreach($all_goods_cat as $cat => $val):?>
-		<?php $lists = D('promotion')->getList($this->controller->Pagination, array('cat'=>$cat), 10, false);?>
+		<?php $lists = D('promotion')->getList($this->controller->Pagination, array('cat'=>$cat), 5, false);?>
 		<fieldset>
 			<legend><?=$cat?> - 今日爆出<font class="purple"><?=intval(@$stat['num_promo_cat_today'][$cat])?></font>件品牌特卖</legend>
 			<?php $now = 0?>
@@ -38,3 +38,4 @@
 		<img src="<?=MY_STATIC_URL?>/img/wap/cat-spacer.png" data-url="<?=MY_STATIC_URL?>/img/wap/cat-my.jpg" alt="母婴" style="width:100%" class="ui-imglazyload" />
 	</a>
 </div>
+<?=$this->renderElement('app_banner')?>

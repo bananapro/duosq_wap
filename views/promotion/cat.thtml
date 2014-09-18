@@ -25,3 +25,4 @@
 		</fieldset>
 	</div>
 </div>
+<?=$this->renderElement('app_banner')?>

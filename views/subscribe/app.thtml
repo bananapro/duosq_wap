@@ -1,0 +1,27 @@
+<style>
+body{background-color: #FFF;}
+</style>
+<section class="app_guide">
+	<header>
+		<a class="app_download_link clearfix" href="<?=C('comm', 'app_downlaod_auto')?>">
+			<img class="appd_col1" src="http://static.duosq.com/img/logo_app.png">
+			<div class="appd_col2">
+				<p class="appdc2_r1">特卖订阅</p>
+				<p class="app_star"></p>
+				<p class="appdc2_r3">100%低价+100%合适</p>
+			</div>
+			<div class="appd_col3"><input type="button" class="ui-btn ui-btn-green" value="立即下载"></div>
+		</a>
+	</header>
+	<section class="app_slide">
+		<div id="J_slider">
+			<div><img lazyload="http://static.duosq.com/img/app/down_landing_slide1.png"></div>
+			<div><img lazyload="http://static.duosq.com/img/app/down_landing_slide2.png"></div>
+			<div><img lazyload="http://static.duosq.com/img/app/down_landing_slide3.png"></div>
+		</div>
+	</section>
+</section>
+
+<script type="text/javascript">
+	$('#J_slider').slider({showArr:false,loop:true, autoPlayTime: 3000});
+</script>

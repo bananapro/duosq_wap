@@ -1,0 +1,57 @@
+<div class="app-banner">
+	<a href="<?=C('comm', 'app_downlaod_auto')?>" target="_blank">
+		<div class="icon"></div>
+		<div class="desc"></div>
+		<div class="buttons"><span class="download">立即打开</span></div>
+	</a>
+	<a href="javascript:void(0)" onclick="closeTip()" class="close"></a>
+</div>
+<script>
+function closeTip(){
+	setCookie('close_app_banner', 1, 24, '/');
+	$('.app-banner').hide();
+}
+
+function setCookie(sName, sValue, sHours, sPath, sDomain, bSecure) {
+
+	if (sName == null && sValue == null) {
+		return false;
+	}
+	var sCookie = sName + "=" + encodeURIComponent(sValue);
+	if (sHours) {
+
+		var date = new Date();
+		var ms = sHours*3600*1000;
+		date.setTime(date.getTime() + ms);
+		sCookie += "; expires=" + date.toGMTString();
+	}
+	if (sPath) {
+		sCookie += "; path=" + sPath;
+	}
+	if (sDomain) {
+		sCookie += "; domain=" + sDomain;
+	}
+	if (bSecure) {
+		sCookie += "; secure";
+	}
+	document.cookie = sCookie;
+	return true;
+}
+
+function getCookie(sName) {
+
+	var oRE = new RegExp("(?:; )?" + sName + "=([^;]*);?");
+	if (oRE.test(document.cookie)) {
+		return decodeURIComponent(RegExp["$1"]);
+	}
+	else {
+	  return null;
+	}
+}
+
+$(function(){
+	if(!getCookie('close_app_banner')){
+		$('.app-banner').show();
+	}
+})
+</script>
