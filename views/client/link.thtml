@@ -1,0 +1,5 @@
+<div class="notice">
+	<img src="<?=MY_STATIC_URL?>/img/logo_app.png" width="60px" align="absmiddle">
+	<div style="margin:15px 0 5px 0">请复制以下链接，在浏览器打开:</div>
+	<div style="font-size:12px;background:#FFFFBD"><?=C('comm', 'app_download_android')?></div>
+</div>

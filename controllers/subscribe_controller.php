@@ -74,9 +74,5 @@ class SubscribeController extends AppController {
 			}
 		}
 	}
-
-	function app(){
-
-	}
 }
 ?>

@@ -1,5 +1,5 @@
 <div class="app-banner">
-	<a href="<?=C('comm', 'app_downlaod_auto')?>" target="_blank">
+	<a href="<?=C('comm', 'app_downlaod_auto')?>">
 		<div class="icon"></div>
 		<div class="desc"></div>
 		<div class="buttons"><span class="download">立即打开</span></div>
