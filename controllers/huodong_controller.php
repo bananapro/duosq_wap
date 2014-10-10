@@ -75,17 +75,23 @@ class HuodongController extends AppController {
 
 				//判断是否恶意注册
 				if(!$exist)D('protect')->attackReg();
-
 				D('vcode')->record();
+
 			}else{
 				$this->redirect('/huodong?hint=您尚未输入支付宝，请重新输入！');
 			}
 
+			//如果支付宝无效，则不进行增加资产
+			if(D('myuser')->getAlipayValid() == \DAL\User::ALIPAY_VALID_ERROR)$ch_alipay = true;
+
 		}elseif(D('myuser')->islogined() && @$_GET['ch_alipay']){
 
+			//如果支付宝无效，则不进行增加资产
+			if(D('myuser')->getAlipayValid() == \DAL\User::ALIPAY_VALID_ERROR)$ch_alipay = true;
+
+			$ch_alipay = true;
 			$ret = D('myuser')->changeAlipay($_GET['alipay'], $err);
 			if(!$ret)$this->redirect('/huodong?hint='.$err.'&alipay='.$_GET['alipay']);
-
 		}
 
 		if(!D('myuser')->canGetCashgift()){
@@ -105,17 +111,16 @@ class HuodongController extends AppController {
 
 			$amount = D('myuser')->newgift(0, true);
 
-			//插入新人抽奖集分宝红包订单
-			D('order')->db('order_cashgift');
-			$ret = D('order')->addCashgift(D('myuser')->getId(), \DB\OrderCashgift::GIFTTYPE_LOTTERY, $amount);
-			if(!$ret){
-				D('order')->redis('lock')->unlock(\Redis\Lock::LOCK_LOTTERY_ADD, D('myuser')->getId());
-				$this->flash('抽奖无效，请返回重试！', '/huodong', 3);
+			if(!@$ch_alipay){
+				//插入新人抽奖集分宝红包订单
+				D('order')->db('order_cashgift');
+				$ret = D('order')->addCashgift(D('myuser')->getId(), \DB\OrderCashgift::GIFTTYPE_LOTTERY, $amount);
+				if(!$ret){
+					D('order')->redis('lock')->unlock(\Redis\Lock::LOCK_LOTTERY_ADD, D('myuser')->getId());
+					$this->flash('抽奖无效，请返回重试！', '/huodong', 3);
+				}
+				D('log')->action(1220, 1, array('data1'=>$ret['o_id'], 'data2'=>$ret['amount'], 'data3'=>'wap'));
 			}
-			D('log')->action(1220, 1, array('data1'=>$ret['o_id'], 'data2'=>$ret['amount'], 'data3'=>'wap'));
-
-			//清除中奖信息
-			D('myuser')->newgift();
 
 			//走接口支付
 			D()->api('interal')->pay(D('myuser')->getId());
@@ -131,7 +136,12 @@ class HuodongController extends AppController {
 				$this->redirect('/huodong?hint=alipay_not_exist&alipay='.$_GET['alipay']);
 			}
 
-			$this->set('message', '3小时内到账支付宝，注意查收~<br /><a href="'.C('comm', 'app_downlaod_auto').'">下载APP每天额外抽奖(100%中)！</a>');
+			if(!$hit){
+				$this->set('message', '3小时内到账支付宝，注意查收~<br /><a href="'.C('comm', 'app_downlaod_auto').'">下载APP每天额外抽奖(100%中)！</a>');
+			}
+
+			//清除中奖信息
+			D('myuser')->newgift();
 
 		}else{
 			$this->set('message', '今日已抽过奖了，请明天再来~<br /><a href="'.C('comm', 'app_downlaod_auto').'">下载APP每天额外抽奖(100%中)！</a>');

@@ -23,7 +23,7 @@
 				</span>
 			</div>
 			<?php if(@$need_vcode):?>
-				<div id="vcode_div" style="font-size:12px; height:30px; line-height:30px; margin-top:10px">验证码：<input name="vcode" value="" style="width:50px;height:24px;padding:0;display:inline" autocomplete="off"/> <a href="javascript:void(0)" onclick="vcodeShow()"><img src="http://www.duosq.com/vcode" id="vcode_img" width="70px" height="22px" align="absmiddle"/></a></div>
+				<div id="vcode_div" style="font-size:12px; height:30px; line-height:30px; margin-top:10px">验证码：<input name="vcode" value="" style="width:50px;height:24px;padding:0;display:inline" autocomplete="off"/> <a href="javascript:void(0)" onclick="vcodeShow()"><img src="<?=MY_WWW_URL?>/vcode" id="vcode_img" width="70px" height="22px" align="absmiddle"/></a></div>
 			<?php endif?>
 
 			<?php if(@$_GET['hint'] == 'alipay_not_exist'):?>

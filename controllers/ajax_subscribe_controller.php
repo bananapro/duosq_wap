@@ -73,15 +73,15 @@ class ajaxSubscribeController extends AppController {
 			$this->_error('网络故障200，请从邮件重新进入！');
 		}
 
-		$is_new = D('subscribe')->getSetting($email);
+		$is_old = D('subscribe')->getSetting($email);
 		$ret = D('subscribe')->sessSave($sess_id, $email, 'email');
 		if(!$ret){
 			$this->_error('网络故障202，请从邮件重新进入！');
 		}else{
 
-			if(!$is_new){
+			if(!$is_old){
 				//发送欢迎邮件
-				sendMail($email, array(), 'subscribe_welcome');
+				//sendMail($email, array(), 'subscribe_welcome');
 			}
 
 			D('log')->action(1555, 1, array('data1'=>'email', 'data2'=>$email, 'data4'=>'wap'));
