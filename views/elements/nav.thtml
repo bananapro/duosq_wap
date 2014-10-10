@@ -1,6 +1,7 @@
 <div class="first-nav">
 <h1><a href="/">特卖订阅</a></h1>
-<p>今日爆出<font class="yellow"><b><?=array_sum($stat['num_promo_sp_today'])?></b></font>件特卖降幅超<b>30%</b></p>
+<!--<p>今日爆出<font class="yellow"><b><?=array_sum($stat['num_promo_sp_today'])?></b></font>件特卖降幅超<b>30%</b></p>-->
+<p><a href="/huodong"><font class="yellow">每日集分宝100%抽奖开抢!</font></a></p>
 </div>
 <div id="J_tab_nav">
 	<ul class="ui-navigator-list">
