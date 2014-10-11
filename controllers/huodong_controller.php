@@ -18,7 +18,7 @@ class HuodongController extends AppController {
 		);
 
 		//如果为推广来源，抽奖10个集分宝
-		if(isset($_GET['code']) && $_GET['code'] && $_GET['code'] == md5(date('Ymd').'kkey')){
+		if(isset($_GET['code']) && $_GET['code'] && ($_GET['code'] == md5(date('Ymd').'kkey') || $_GET['code'] == md5(date('Ymd', time()-DAY).'kkey')) && !D('myuser')->islogined()){
 			$prize = 3;
 		}else{
 			$prize = 4;
