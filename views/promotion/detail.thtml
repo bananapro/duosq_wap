@@ -1,7 +1,7 @@
 <section class="place-holder-nav"></section>
 <div class="promo-bd" style="padding-top:20px">
 	<div class="promo-item-mod promo-brand-mod">
-		<a href="<?=D('promotion')->buildUrl($promo['url_tpl'], $promo['url_id'], 'mobi')?>" target="_blank">
+		<a href="<?=promoUrl($promo['sp'], $promo['goods_id'], D('promotion')->buildUrl($promo['url_tpl'], $promo['url_id'], 'mobi'))?>" target="_blank">
 			<div class="mod-img">
 				<?php if(isset($promo['is_new'])):?>
 					<div class="mod-mark mark-new">new</div>

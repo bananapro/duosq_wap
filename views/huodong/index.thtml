@@ -1,4 +1,4 @@
-﻿<div style="margin-top:45px;overflow:hidden;"><img src="<?=MY_STATIC_URL?>/img/app/app_banner_3.png" width="100%"></div>
+﻿<div style="margin-top:45px;overflow:hidden;"><a href="<?=C('comm', 'app_downlaod_auto')?>"><img src="<?=MY_STATIC_URL?>/img/adv/banner_jfb_download_app.png" width="100%"></a></div>
 <div class="ly-plate">
 	<div class="rotate-bg"></div>
 	<div class="lottery-star">
