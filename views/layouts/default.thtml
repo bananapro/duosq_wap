@@ -14,9 +14,7 @@
 </head>
 	<body>
 		<?php if(!@$hide_nav):?>
-		<div class="second-nav J_super_top clearfix">
 			<?=$this->renderElement('nav')?>
-		</div>
 		<?php endif?>
 		<?=$content_for_layout;?>
 		<?php if(!$hide_footer):?>

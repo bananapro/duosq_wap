@@ -1,29 +1,30 @@
-<div class="first-nav">
-<h1><a href="/">特卖订阅</a></h1>
-<!--<p>今日爆出<font class="yellow"><b><?=array_sum($stat['num_promo_sp_today'])?></b></font>件特卖降幅超<b>30%</b></p>-->
-<p><a href="/huodong"><font class="yellow">每日集分宝100%抽奖开抢!</font></a></p>
-</div>
-<div id="J_tab_nav">
-	<ul class="ui-navigator-list">
-		<li><a class="J-nav-classify" href="/">网站首页</a></li>
+<div class="second-nav clearfix">
+	<div class="first-nav">
+	<h1><a href="/">特卖订阅</a></h1>
+	<!--<p>今日爆出<font class="yellow"><b><?=array_sum($stat['num_promo_sp_today'])?></b></font>件特卖降幅超<b>30%</b></p>-->
+	<p><a href="/huodong"><font class="yellow">每日集分宝100%抽奖开抢!</font></a></p>
+	</div>
+	<div id="tab_nav">
+		<ul class="ui-navigator-list">
+			<li><a class="J-nav-classify" href="/">网站首页</a></li>
+			<?php if(isset($cat) && $cat):?>
 
-		<?php if(isset($cat) && $cat):?>
+				<li><a class="J-nav-classify<?php if(!isset($midcat)):?> cur<?php endif?>" href="<?=promoCatUrl($cat)?>">全部<?=$cat?></a></li>
+				<?php foreach($all_goods_cat[$cat] as $i_midcat => $subcats):?>
+				<li><a class="J-nav-classify<?php if(isset($midcat) && $midcat == $i_midcat):?> cur<?php endif?>" href="<?=promoMidcatUrl($i_midcat)?>"><?=$i_midcat?></a></li>
+				<?php endforeach?>
 
-			<li><a class="J-nav-classify<?php if(!isset($midcat)):?> cur<?php endif?>" href="<?=promoCatUrl($cat)?>">全部<?=$cat?></a></li>
-			<?php foreach($all_goods_cat[$cat] as $i_midcat => $subcats):?>
-			<li><a class="J-nav-classify<?php if(isset($midcat) && $midcat == $i_midcat):?> cur<?php endif?>" href="<?=promoMidcatUrl($i_midcat)?>"><?=$i_midcat?></a></li>
-			<?php endforeach?>
+			<?php else:?>
 
-		<?php else:?>
+				<?php foreach($all_goods_cat as $cat => $midcats):?>
+				<li><a class="J-nav-classify" href="<?=promoCatUrl($cat)?>"><?=$cat?></a></li>
+				<?php endforeach?>
 
-			<?php foreach($all_goods_cat as $cat => $midcats):?>
-			<li><a class="J-nav-classify" href="<?=promoCatUrl($cat)?>"><?=$cat?></a></li>
-			<?php endforeach?>
+			<?php endif?>
 
-		<?php endif?>
-
-		<?php if(D('myuser')->getSubscribeEmail()):?>
-			<li><a class="J-nav-classify<?php if(isset($in_subscribe)&&$in_subscribe):?> cur<?php endif?>" href="/subscribe">特卖订阅设置</a></li>
-		<?php endif?>
-	</ul>
+			<?php if(D('myuser')->getSubscribeEmail()):?>
+				<li><a class="J-nav-classify<?php if(isset($in_subscribe)&&$in_subscribe):?> cur<?php endif?>" href="/subscribe">特卖订阅设置</a></li>
+			<?php endif?>
+		</ul>
+	</div>
 </div>

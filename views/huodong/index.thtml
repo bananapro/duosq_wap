@@ -33,7 +33,12 @@
 		</fieldset>
 	</form>
 </div>
-
+<script>
+	//修正载入jquery后再执行绑定出错
+	$("#tab_nav").navigator({
+		defTab: 0
+	});
+</script>
 <script type="text/javascript" src="<?=MY_STATIC_URL?>/img/huodong/lottery/wap/jquery-2.1.1.js"></script>
 <script type="text/javascript" src="<?=MY_STATIC_URL?>/img/huodong/lottery/wap/jQueryRotate.2.2.js"></script>
 <script type="text/javascript" src="<?=MY_STATIC_URL?>/img/huodong/lottery/wap/jquery.easing.min.js"></script>
