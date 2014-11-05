@@ -19,8 +19,8 @@
 </head>
 <body>
 	<div style="text-align:center;margin-top:80px">
-		<a href="/"><img src="<?=MY_STATIC_URL?>/img/logo.png" align="absmiddle"></a>
-		<div style="padding:15px;margin:0 auto; font-size:14px; margin-top:20px;background-color:#FFF;border-radius:10px; border:1px solid #CBCBCB; line-height:40px">
+		<img src="<?=MY_STATIC_URL?>/img/logo.png" align="absmiddle">
+		<div style="padding:10px;margin:0 auto;font-size:14px; margin-top:20px;background-color:#FFF;border-radius:10px; border:1px solid #CBCBCB; line-height:40px; width:95%; -webkit-box-sizing: border-box;">
 		<a href="<?php echo $url?>"><?php echo $message?></a>&nbsp; <span id="count" style="font-size:14px;font-family:arial"><?=$pause?></span>
 		</div>
 	</div>

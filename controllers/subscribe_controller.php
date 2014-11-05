@@ -30,18 +30,6 @@ class SubscribeController extends AppController {
 			$this->set('all_goods_cat', $all_goods_cat = D('promotion')->getCatConfig(true));
 			$this->set('setting', $setting);
 
-			$default_midcat = array();
-
-			if(@$_GET['default_cat']){
-				$default_midcat = D('promotion')->midcat($_GET['default_cat']);
-			}
-
-			if(@$_GET['default_midcat']){
-				$default_midcat = array($_GET['default_midcat']);
-			}
-
-			$this->set('default_midcat', $default_midcat);
-
 			//新订阅或者订阅禁止状态，允许直接提交
 			if( !$setting || $setting['status'] == \DB\Subscribe::STATUS_STOP){
 				$this->set('enable_submit', true);
