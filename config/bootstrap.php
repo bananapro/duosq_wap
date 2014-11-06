@@ -39,7 +39,7 @@ function promoUrl($sp, $goods_id, $url, $tc='wap'){
 
 		if($sp == 'tmall' || $sp == 'taobao'){
 			//淘宝移动端hack跳转跟单
-			$url = MY_WWW_URL .'/item-'.$sp.'-'.$goods_id.'?tc='.$tc;
+			//$url = MY_WWW_URL .'/item-'.$sp.'-'.$goods_id.'?tc='.$tc;
 		}else{
 			$url = MY_WWW_URL . "/go/{$sp}?tc={$tc}&t=".urlencode($url);
 		}
