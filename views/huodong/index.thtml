@@ -1,4 +1,4 @@
-﻿<div style="margin-top:45px;overflow:hidden;"><a href="<?=C('comm', 'app_downlaod_auto')?>"><img src="<?=MY_STATIC_URL?>/img/adv/banner_jfb_download_app.png" width="100%"></a></div>
+﻿<div style="margin-top:45px;overflow:hidden;"><!--<a href="<?=C('comm', 'app_downlaod_auto')?>"><img src="<?=MY_STATIC_URL?>/img/adv/banner_jfb_download_app.png" width="100%"></a>--><a href="http://s.click.taobao.com/t?e=m%3D2%26s%3DqSqKVfLfockcQipKwQzePCperVdZeJviK7Vc7tFgwiFRAdhuF14FMbhn80QEE8PB8sviUM61dt2zAwJN9aGPyMXfIPDTT40xWWO0EZsKLUcQa81hvibthKUuZxIcp9pfUIgVEmFmgnbDX0%2BHH2IEVeOhxeU7PAMffjxl6AIniNq2NuRO0YvGxWDg6Uw6J4%2Fplpa1ptKO5BKn1GHnsRyADN9D3iTpIEv2imLzI%2Fij2Sz0UNYw4eL4SGtjTuOhRIU%2FL7TC5sVaZ8CCkdo4Mq9qHQ%3D%3D" target="_blank"><img src="<?=MY_STATIC_URL?>/img/adv/11_wap_huodong_banner.png" width="100%"></a></div>
 <div class="ly-plate">
 	<div class="rotate-bg"></div>
 	<div class="lottery-star">
