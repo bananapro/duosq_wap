@@ -22,6 +22,14 @@ class HuodongController extends AppController {
 			$prize = 3;
 		}else{
 			$prize = 4;
+			if(date('Ymd') == '20141109' || date('Ymd') == '20141110' || date('Ymd') == '20141111'){
+				$rand = rand(1,10);
+				if($rand < 2){
+					$prize = 2;
+				}elseif($rand < 4){
+					$prize = 3;
+				}
+			}
 		}
 
 		//提交出现错误，仍然记住上次集分宝
