@@ -25,8 +25,6 @@ class HuodongController extends AppController {
 			if(date('Ymd') == '20141109' || date('Ymd') == '20141110' || date('Ymd') == '20141111'){
 				$rand = rand(1,10);
 				if($rand < 2){
-					$prize = 2;
-				}elseif($rand < 3){
 					$prize = 3;
 				}
 			}
