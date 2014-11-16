@@ -22,14 +22,11 @@ class HuodongController extends AppController {
 			$prize = 3;
 		}elseif(isset($_GET['code']) && $_GET['code'] && ($_GET['code'] == md5(date('Ymd', time()-DAY).'kkey')) && !D('myuser')->islogined()){
 			$prize = 3;
-		}else{
-			$prize = 4;
-			if(date('Ymd') == '20141109' || date('Ymd') == '20141110' || date('Ymd') == '20141111'){
-				$rand = rand(1,10);
-				if($rand < 2){
-					$prize = 3;
-				}
-			}
+		}
+
+		//11.16临时
+		if($_GET['code'] == 'd60d12e1bad8f69bf67fda304d39eeed'){
+			$prize = 3;
 		}
 
 		//提交出现错误，仍然记住上次集分宝
