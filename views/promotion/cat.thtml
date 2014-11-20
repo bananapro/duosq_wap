@@ -1,5 +1,5 @@
 <section class="place-holder-nav"></section>
-<div class="promo-bd">
+<div class="promo-list-two">
 	<div class="limit-hd clearfix">
 		<?php
 			$count_all_goods = array_sum($stat['num_goods'])+3;

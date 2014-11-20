@@ -1,5 +1,5 @@
 <section class="place-holder-nav"></section>
-<div class="promo-bd">
+<div class="promo-list-two">
 	<div class="promo-list">
 	<?php foreach($all_goods_cat as $cat => $val):?>
 		<?php $lists = D('promotion')->getList($this->controller->Pagination, array('cat'=>$cat), 5, false);?>

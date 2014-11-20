@@ -1,6 +1,6 @@
 <li class="clearfix<?php if(@$noborder):?> noborder<?php endif?>">
 	<a href="<?=promoGoodsUrl($promo['sp'], $promo['goods_id'])?>">
-	<div class="goods-img promo-brand-mod">
+	<div class="goods-img">
 		<?php if(isset($promo['is_new'])):?><div class="mod-mark mark-new">new</div><?php endif?>
 		<img class="ui-imglazyload" src="<?=MY_STATIC_URL?>/img/no_photo.png" data-url="<?=imageUrl($promo['pic_url'], '200x200')?>" />
 		<?php if($promo['invalid']):?><div class="st"><img src="<?=MY_STATIC_URL?>/img/promotion/st_<?=$promo['invalid']?>.png" /></div><?php endif?>

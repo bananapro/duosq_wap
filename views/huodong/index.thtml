@@ -29,7 +29,7 @@
 			<?php if(@$_GET['hint'] == 'alipay_not_exist'):?>
 				<input type="hidden" name="ch_alipay" value=1 />
 			<?php endif?>
-			<a href="javascript:void(0)" onclick="$('#form').submit();"><div class="promo-bd" style="padding:0"><div class="submit-btn important">提交信息</div></div></a>
+			<a href="javascript:void(0)" onclick="$('#form').submit();"><div class="promo-list-two" style="padding:0"><div class="submit-btn important">提交信息</div></div></a>
 		</fieldset>
 	</form>
 </div>
