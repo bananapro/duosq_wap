@@ -24,7 +24,6 @@ class AppController extends Controller {
 	}
 
 	function beforeRender(){
-		$this->set('all_goods_cat', D('promotion')->getCatConfig(true));
 		$this->set('stat', D('promotion')->getStat());
 	}
 

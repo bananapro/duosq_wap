@@ -1,7 +1,12 @@
+<style>
+body{background:#FFF}
+</style>
 <section class="place-holder-nav"></section>
+<div class="limit-hd clearfix">
+	<h3 class="t">每日10点，特卖大量上新，大量包邮</h3>
+</div>
 <ul class="promo-list"></ul>
 <div id="loading" class="more-loading"></div>
-<?=$this->renderElement('app_banner')?>
 
 <script>
 var down_page = 1;
@@ -13,7 +18,7 @@ function load(){
 	locked = true;
 	if(down_page == 'end')return;
 	$('#loading').html('<img src="<?=MY_STATIC_URL?>/img/loading.gif" width="20" height="20" align="absmiddle"> 正在加载...');
-	call_url = '/ajaxPromotion/cat9/?page='+down_page;
+	call_url = '/ajaxPromotion/cat9?category=<?=urlencode($category)?>&page='+down_page;
 
 	$.get(call_url, function (data) {
 

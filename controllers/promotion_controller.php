@@ -57,6 +57,17 @@ class PromotionController extends AppController {
 		$this->set('stat', D('promotion')->getStat());
 	}
 
+	//9.9分类列表
+	function cat9($category=''){
+		if($category){
+			$category = urldecode($category);
+			$this->set('title', '每日特惠包邮 - '.$category.' - 特卖订阅');
+		}else{
+			$this->set('title', '每日特惠 - 特卖订阅');
+		}
+		$this->set('category', $category);
+	}
+
 	//促销商品详情页
 	function detail($id_str){
 
@@ -71,33 +82,16 @@ class PromotionController extends AppController {
 		$goods = D('promotion')->goodsDetail($sp, $goods_id);
 		if(!$goods)$this->redirect('/', 301);
 
-		$promo = D('promotion')->renderPromoDetail(array($promo));
-		$promo = array_pop($promo);
+		if(!$goods['name_long']){
+			$succ = D('promotion')->updateGoodsDeepInfo($sp, $goods_id, $goods['url_id']);
+			if($succ)$goods = array_merge($goods, $succ);
+		}
+		$this->set('title', $goods['name'].' -特卖订阅');
+
+		$this->set('goods', $goods);
 		$this->set('promo', $promo);
-
-		$title_pre = '';
-
-		if($goods['brand_id']){
-			$title_pre = D('brand')->getName($goods['brand_id'], false);
-
-			if($goods['subcat']){
-				$title_pre .= $goods['subcat'][0];
-			}else if($goods['cat']){
-				$title_pre .= $goods['cat'][0];
-			}
-		}
-
-		if($title_pre){
-			$title_pre = ' - '.$title_pre.' - ';
-		}
-
-		$this->set('title', $promo['name'].$title_pre.' -特卖订阅');
-
-		$this->set('all_goods_cat', D('promotion')->getCatConfig(true));
-		$this->set('stat', D('promotion')->getStat());
-		$this->set('cat', $goods['cat'][0]);
-		$this->set('meta_keywords', join('特卖', explode(' ', $promo['name'])));
-		$this->set('meta_description', D('shop')->getName($sp).'正品特卖,'.join('促销', explode(' ', $promo['name'])).' 今日仅售'.$promo['price_now'].'元包邮,价格当天有效');
+		$this->set('meta_keywords', join('特卖', explode(' ', $goods['name'])));
+		$this->set('meta_description', D('shop')->getName($sp).'正品特卖,'.join('促销', explode(' ', $goods['name'])).' 今日仅售'.$promo['price_now'].'元包邮,价格当天有效');
 	}
 }
 ?>

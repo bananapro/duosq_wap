@@ -1,6 +1,6 @@
 <?php
 
-//特卖商品详情页
+//商品详情页
 function promoGoodsUrl($sp, $goods_id, $tc=''){
 
 	if(!$sp || !$goods_id)return '/';
@@ -23,6 +23,13 @@ function promoMidcatUrl($midcat){
 
 	if(!$midcat)return '/';
 	return MY_HOMEPAGE_URL.'/promo-midcat-'.urlencode($midcat);
+}
+
+//9.9大分类url
+function promoCat9Url($cat){
+
+	if(!$cat)return '/';
+	return MY_HOMEPAGE_URL.'/9.9-'.urlencode($cat);
 }
 
 //转换外链

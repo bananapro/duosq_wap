@@ -13,6 +13,7 @@
 	<?php echo $javascript->link(MY_STATIC_URL.'/js/h5_main');?>
 </head>
 	<body>
+		<a id="back_to_top" href="javascript:;"></a>
 		<?php if(!@$hide_nav):?>
 			<?=$this->renderElement('nav')?>
 		<?php endif?>
@@ -20,11 +21,7 @@
 		<?php if(!$hide_footer):?>
 		<footer>
 			<aside>
-				<?php if(@$home):?>
-					<span><a href="<?=MY_WWW_URL?>?jump_to_pc=1">PC版</a> / <a href="<?=C('comm', 'app_downlaod_auto')?>">下载APP</a></span>
-				<?php else:?>
-					<span><p class="purple">从<font style="font-size:16px" class="orange">2万</font>个品牌，<font style="font-size:16px" class="blue">1千万</font>商品，订阅<font style="font-size:16px" class="green">最适合您的特卖</font></p></span>
-				<?php endif?>
+				<span><a href="<?=MY_WWW_URL?>?jump_to_pc=1">PC版</a> / <a href="<?=C('comm', 'app_downlaod_auto')?>">下载APP</a></span>
 			</aside>
 		</footer>
 		<?php endif?>
