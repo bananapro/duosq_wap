@@ -17,7 +17,7 @@ class ajaxPromotionController extends AppController {
 		D('promotion')->db('promotion.queue_promo');
 
 		$cond = array();
-		$cond['type'] = array(\DB\QueuePromo::TYPE_9, \DB\QueuePromo::TYPE_HUODONG);
+		$cond['type'] = array(\DB\QueuePromo::TYPE_9, \DB\QueuePromo::TYPE_DISCOUNT);
 
 		if(@$_GET['category']){
 
