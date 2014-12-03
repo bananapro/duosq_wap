@@ -6,7 +6,7 @@
 				<div class="mod-mark mark-new">new</div>
 			<?php endif?>
 			<div class="saled">月销量 <?=$goods['saled']?$goods['saled']:saledByRand($goods['name'].'key')?> &nbsp; &nbsp; &nbsp; &nbsp; 收藏数 <?=saledByRand($goods['name'])?></div>
-			<img src="<?=imageUrl(r(array('460x460','360x360','260x260'), '960x960', $goods['pic_url']), '600x600')?>" width="100%"/>
+			<img src="<?=imageUrl(r(array('220x220','230x230','430x430','460x460','360x360','260x260'), '960x960', $goods['pic_url']), '600x600')?>" width="100%"/>
 		</div>
 		<div class="mod-desc border-not">
 			<?=strtotime($promo['hd_expire'])>0?'<span class="color">【限时'.date('n月d',strtotime($promo['hd_expire'])).'】</span>':''?><?=$goods['name']?>
