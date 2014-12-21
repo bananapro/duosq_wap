@@ -7,6 +7,9 @@ class HuodongController extends AppController {
 	//显示抽奖界面
 	function index(){
 
+		//抽奖必须用APP
+		$this->redirect(C('comm', 'app_downlaod_auto'));
+
 		//中奖配置
 		$config = array(
 			1=>0,
