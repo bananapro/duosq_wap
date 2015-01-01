@@ -1,6 +1,6 @@
 <div class="second-nav clearfix">
 	<div class="first-nav">
-	<h1><a href="/">特卖订阅</a></h1>
+	<h1><a href="/">多省钱</a></h1>
 	<p><a href="/huodong"><font class="yellow">每日集分宝100%抽奖开抢!</font></a></p>
 	</div>
 	<div id="tab_nav">
@@ -12,7 +12,7 @@
 			<?php endforeach?>
 
 			<?php if(D('myuser')->getSubscribeEmail()):?>
-				<li><a class="J-nav-classify<?php if(isset($in_subscribe)&&$in_subscribe):?> cur<?php endif?>" href="/subscribe">特卖订阅设置</a></li>
+				<li><a class="J-nav-classify<?php if(isset($in_subscribe)&&$in_subscribe):?> cur<?php endif?>" href="/subscribe">多省钱设置</a></li>
 			<?php endif?>
 		</ul>
 	</div>

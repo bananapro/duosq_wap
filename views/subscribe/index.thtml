@@ -97,8 +97,8 @@
 
 		<div class="ft" style="position:fixed;bottom:0;left:0;width:100%; padding-bottom:0; height: 50px;">
 			<?php if($enable_submit):?>
-				<a id="submit-btn-enable" href="javascript:void(0);" onclick="saveSetting()" class="subscribe-submit subscribe-submit-save" style="display:none">开启特卖订阅</a>
-				<a id="submit-btn-disable" class="subscribe-submit">开启特卖订阅</a>
+				<a id="submit-btn-enable" href="javascript:void(0);" onclick="saveSetting()" class="subscribe-submit subscribe-submit-save" style="display:none">开启多省钱</a>
+				<a id="submit-btn-disable" class="subscribe-submit">开启多省钱</a>
 			<?else:?>
 				<a id="submit-btn-enable" href="javascript:void(0);" onclick="saveSetting()" class="subscribe-submit subscribe-submit-save" style="display:none">保存订阅设置</a>
 				<a id="submit-btn-disable" class="subscribe-submit">保存订阅设置</a>
@@ -253,7 +253,7 @@ function refuse(){
 
 			if(e.status == 1){
 				$('.subscribe-options').hide();
-				$('.subscribe-options').html('<div class="notice"><img src="<?=MY_STATIC_URL?>/img/logo.png" width="40px" align="absmiddle"> &nbsp; 已停止特卖订阅！<br /><a href="/subscribe">继续设置>></a></div>');
+				$('.subscribe-options').html('<div class="notice"><img src="<?=MY_STATIC_URL?>/img/logo.png" width="40px" align="absmiddle"> &nbsp; 已停止多省钱！<br /><a href="/subscribe">继续设置>></a></div>');
 				$('.subscribe-options').show();
 			}else{
 				alert(e.message);

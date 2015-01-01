@@ -45,9 +45,9 @@ class PromotionController extends AppController {
 		$lists = D('promotion')->getList($this->Pagination, $cond, C('comm', 'wap_promo_cat_goods_pre_page'), false);
 
 		if($midcat){
-			$this->set('title', $midcat.'特卖 -特卖订阅');
+			$this->set('title', $midcat.'特卖 -多省钱');
 		}else{
-			$this->set('title', $cat.'特卖 -特卖订阅');
+			$this->set('title', $cat.'特卖 -多省钱');
 		}
 
 		$this->set('lists', $lists);
@@ -61,9 +61,9 @@ class PromotionController extends AppController {
 	function cat9($category=''){
 		if($category){
 			$category = urldecode($category);
-			$this->set('title', '每日特惠包邮 - '.$category.' - 特卖订阅');
+			$this->set('title', '每日特惠包邮 - '.$category.' - 多省钱');
 		}else{
-			$this->set('title', '每日特惠 - 特卖订阅');
+			$this->set('title', '每日特惠 - 多省钱');
 		}
 		$this->set('category', $category);
 	}
@@ -86,7 +86,7 @@ class PromotionController extends AppController {
 			$succ = D('promotion')->updateGoodsDeepInfo($sp, $goods_id, $goods['url_id']);
 			if($succ)$goods = array_merge($goods, $succ);
 		}
-		$this->set('title', $goods['name'].' -特卖订阅');
+		$this->set('title', $goods['name'].' -多省钱');
 
 		$this->set('goods', $goods);
 		$this->set('promo', $promo);

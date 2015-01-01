@@ -6,7 +6,7 @@ body{background-color: #FFF;}
 		<a class="app_download_link clearfix" href="<?=C('comm', 'app_downlaod_auto')?>">
 			<img class="appd_col1" src="http://static.duosq.com/img/logo_app.png">
 			<div class="appd_col2">
-				<p class="appdc2_r1">特卖订阅</p>
+				<p class="appdc2_r1">多省钱</p>
 				<p class="app_star"></p>
 				<p class="appdc2_r3">100%低价+100%合适</p>
 			</div>

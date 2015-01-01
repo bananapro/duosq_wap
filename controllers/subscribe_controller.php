@@ -7,7 +7,7 @@ class SubscribeController extends AppController {
 	//订阅设置
 	function index(){
 
-		$this->set('title', '特卖订阅设置');
+		$this->set('title', '多省钱设置');
 
 		$email = D('myuser')->getSubscribeEmail();
 
