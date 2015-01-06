@@ -8,7 +8,7 @@ class HuodongController extends AppController {
 	function index(){
 
 		//抽奖必须用APP
-		$this->redirect(C('comm', 'app_downlaod_auto'));
+		//$this->redirect(C('comm', 'app_downlaod_auto'));
 
 		//中奖配置
 		$config = array(
@@ -23,9 +23,9 @@ class HuodongController extends AppController {
 		$prize = 4;
 		//如果为推广来源，抽奖20个集分宝
 		if(isset($_GET['code']) && $_GET['code'] && ($_GET['code'] == md5(date('Ymd').'kkey')) && !D('myuser')->islogined()){
-			$prize = 3;
+			$prize = 4;
 		}elseif(isset($_GET['code']) && $_GET['code'] && ($_GET['code'] == md5(date('Ymd', time()-DAY).'kkey')) && !D('myuser')->islogined()){
-			$prize = 3;
+			$prize = 4;
 		}
 
 		//提交出现错误，仍然记住上次集分宝
@@ -132,7 +132,8 @@ class HuodongController extends AppController {
 			$hit = D('order')->getSubList('reduce', array('user_id'=>D('myuser')->getId(), 'createdate'=>date('Y-m-d'), 'status'=>\DB\OrderReduce::STATUS_PAY_DONE), 'o_id DESC');
 
 			if($hit){
-				$this->set('message', '已支付，请登录支付宝查收~<br /><a href="'.C('comm', 'app_downlaod_auto').'">下载APP每天额外抽奖(100%中)！</a>');
+				//$this->set('message', '已支付，请登录支付宝查收~<br /><a href="'.C('comm', 'app_downlaod_auto').'">下载APP每天额外抽奖(100%中)！</a>');
+				$this->set('message', '已支付，请登录支付宝查收~<br />PC访问duosq.com更高抽奖额！');
 			}
 
 			if(D('myuser')->getAlipayValid() == \DAL\User::ALIPAY_VALID_ERROR){
@@ -141,14 +142,16 @@ class HuodongController extends AppController {
 			}
 
 			if(!$hit){
-				$this->set('message', '3小时内到账支付宝，注意查收~<br /><a href="'.C('comm', 'app_downlaod_auto').'">下载APP每天额外抽奖(100%中)！</a>');
+				//$this->set('message', '3小时内到账支付宝，注意查收~<br /><a href="'.C('comm', 'app_downlaod_auto').'">下载APP每天额外抽奖(100%中)！</a>');
+				$this->set('message', '3小时内到账支付宝，注意查收~<br />PC访问duosq.com更高抽奖额！');
 			}
 
 			//清除中奖信息
 			D('myuser')->newgift();
 
 		}else{
-			$this->set('message', '今日已抽过奖了，请明天再来~<br /><a href="'.C('comm', 'app_downlaod_auto').'">下载APP每天额外抽奖(100%中)！</a>');
+			//$this->set('message', '今日已抽过奖了，请明天再来~<br /><a href="'.C('comm', 'app_downlaod_auto').'">下载APP每天额外抽奖(100%中)！</a>');
+			$this->set('message', '今日已抽过奖了，请明天再来~<br />PC访问duosq.com更高抽奖额！');
 		}
 	}
 }

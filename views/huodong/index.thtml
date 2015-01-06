@@ -1,4 +1,6 @@
-﻿<div style="margin-top:45px;overflow:hidden;"><a href="<?=C('comm', 'app_downlaod_auto')?>"><img src="<?=MY_STATIC_URL?>/img/adv/banner_jfb_download_app.png" width="100%"></a></div>
+﻿<div style="margin-top:45px;overflow:hidden;font-size:20px; line-height:45px; background-color:#F69;color:#FFF; text-align:center"><!--<a href="<?=C('comm', 'app_downlaod_auto')?>"><img src="<?=MY_STATIC_URL?>/img/adv/banner_jfb_download_app.png" width="100%"></a>-->
+PC访问duosq.com集分宝更高倍
+</div>
 <div class="ly-plate">
 	<div class="rotate-bg"></div>
 	<div class="lottery-star">

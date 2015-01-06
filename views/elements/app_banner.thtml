@@ -12,6 +12,8 @@ function closeTip(){
 	$('.app-banner').hide();
 }
 
+closeTip();
+
 function setCookie(sName, sValue, sHours, sPath, sDomain, bSecure) {
 
 	if (sName == null && sValue == null) {
