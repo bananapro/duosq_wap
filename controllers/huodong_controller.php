@@ -13,7 +13,7 @@ class HuodongController extends AppController {
 		//中奖配置
 		$config = array(
 			1=>0,
-			2=>30,
+			2=>10,
 			3=>20,
 			4=>1,
 			5=>100,
@@ -23,7 +23,7 @@ class HuodongController extends AppController {
 		$prize = 4;
 		//如果为推广来源，抽奖20个集分宝
 		if(isset($_GET['code']) && $_GET['code'] && ($_GET['code'] == md5(date('Ymd').'kkey')) && !D('myuser')->islogined()){
-			$prize = 4;
+			$prize = 2;
 		}elseif(isset($_GET['code']) && $_GET['code'] && ($_GET['code'] == md5(date('Ymd', time()-DAY).'kkey')) && !D('myuser')->islogined()){
 			$prize = 4;
 		}
