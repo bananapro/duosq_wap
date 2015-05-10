@@ -7,6 +7,8 @@ class HuodongController extends AppController {
 	//显示抽奖界面
 	function index(){
 
+		die('活动下线！');
+
 		//抽奖必须用APP
 		//$this->redirect(C('comm', 'app_downlaod_auto'));
 
@@ -49,6 +51,8 @@ class HuodongController extends AppController {
 
 	//领取奖励
 	function getPrize(){
+
+		die('活动下线！');
 
 		$this->layout = 'hint';
 
